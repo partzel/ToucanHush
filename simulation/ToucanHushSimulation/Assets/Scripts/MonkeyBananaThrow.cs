@@ -5,7 +5,7 @@ public class MonkeyBananaThrow : MonoBehaviour
 {
     Animation animationPlayer;
     [SerializeField] public Transform throwPoint;
-    public float throwForce = 600f;
+    public float throwForce = 20f;
     public bool isThrowing;
 
 
@@ -19,13 +19,22 @@ public class MonkeyBananaThrow : MonoBehaviour
 
     public void ThrowBanana()
     {
+        isThrowing = true;
         animationPlayer.Play("Throw");
-        Debug.Log("Threw banana!");
+    }
+
+    public void SpawnBanana()
+    {
         GameObject b = Instantiate(banana, throwPoint.position, throwPoint.rotation);
         Rigidbody rb = b.GetComponent<Rigidbody>();
         if (rb != null)
         {
             rb.AddForce(throwPoint.forward * throwForce, ForceMode.Impulse);
         }
+    }
+
+    public void UnlockMovement()
+    {
+        isThrowing = false;
     }
 }

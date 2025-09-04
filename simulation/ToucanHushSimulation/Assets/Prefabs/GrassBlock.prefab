@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrassBlock
       objectReference: {fileID: 0}
+    - target: {fileID: -6920987153026122271, guid: 0e7c66e0546b6b047b1602d9fc568428, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     - target: {fileID: -3134161269650410092, guid: 0e7c66e0546b6b047b1602d9fc568428, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0

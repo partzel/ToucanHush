@@ -62,6 +62,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8578097327777322850, guid: 4c512ae5e2840d3438bcfb47a5612ea3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5422468586683805749}
+    - targetCorrespondingSourceObject: {fileID: 8578097327777322850, guid: 4c512ae5e2840d3438bcfb47a5612ea3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2966257828889524656}
   m_SourcePrefab: {fileID: 8686905464242370237, guid: 4c512ae5e2840d3438bcfb47a5612ea3, type: 3}
 --- !u!1 &396962625769467493 stripped
 GameObject:
@@ -116,3 +119,15 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.39670825
   m_Center: {x: 0, y: 0, z: -0.10329175}
+--- !u!114 &2966257828889524656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396962625769467493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fe9515b277996449b655d7f17ef3353, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Banana

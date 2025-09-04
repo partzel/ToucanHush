@@ -2,22 +2,22 @@
     "AimAndThrow": {
         "checkpoints": [
             {
-                "steps": 3648,
-                "file_path": "results\\ppo\\AimAndThrow\\AimAndThrow-3648.onnx",
+                "steps": 3904,
+                "file_path": "results\\ppo\\AimAndThrow\\AimAndThrow-3904.onnx",
                 "reward": null,
-                "creation_time": 1756950222.9483047,
+                "creation_time": 1756974057.5145621,
                 "auxillary_file_paths": [
-                    "results\\ppo\\AimAndThrow\\AimAndThrow-3648.pt"
+                    "results\\ppo\\AimAndThrow\\AimAndThrow-3904.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 3648,
+            "steps": 3904,
             "file_path": "results\\ppo\\AimAndThrow.onnx",
             "reward": null,
-            "creation_time": 1756950222.9483047,
+            "creation_time": 1756974057.5145621,
             "auxillary_file_paths": [
-                "results\\ppo\\AimAndThrow\\AimAndThrow-3648.pt"
+                "results\\ppo\\AimAndThrow\\AimAndThrow-3904.pt"
             ]
         }
     },

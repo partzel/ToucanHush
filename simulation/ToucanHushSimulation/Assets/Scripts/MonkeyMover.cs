@@ -4,24 +4,47 @@ using UnityEngine.InputSystem;
 public class MonkeyMover : MonoBehaviour
 {
     public Animation animationPlayer;
-    public float movementSpeed = 10.0f;
-    public float rotationSpeed = 3.0f;
+    public float movementSpeed = 5.0f;
+    public float rotationSpeed = 180.0f;
+    public bool isThrowing;
+    [HideInInspector] public bool isMoveForward, isMoveBackward, isTurnLeft, isTurnRight, isThrowBanana;
+
+    PlayerInput playerInput;
 
     public void Start()
     {
         animationPlayer = GetComponent<Animation>();
+        playerInput = GetComponent<PlayerInput>();
+
+        playerInput.actions["MoveForward"].performed += ctx => isMoveForward = true;
+        playerInput.actions["MoveForward"].canceled += ctx => isMoveForward = true;
+
+        playerInput.actions["MoveForward"].performed += ctx => isMoveForward = true;
+        playerInput.actions["MoveForward"].canceled  += ctx => isMoveForward = false;
+
+        playerInput.actions["MoveBackward"].performed += ctx => isMoveBackward = true;
+        playerInput.actions["MoveBackward"].canceled  += ctx => isMoveBackward = false;
+
+        playerInput.actions["TurnLeft"].performed += ctx => isTurnLeft = true;
+        playerInput.actions["TurnLeft"].canceled  += ctx => isTurnLeft = false;
+
+        playerInput.actions["TurnRight"].performed += ctx => isTurnRight = true;
+        playerInput.actions["TurnRight"].canceled  += ctx => isTurnRight = false;
+
+        playerInput.actions["ThrowBanana"].performed += ctx => isThrowBanana = true;
+        playerInput.actions["ThrowBanana"].canceled += ctx => isThrowBanana = false;
     }
 
     public void MoveForward()
     {
         animationPlayer.Play("Walk");
-        transform.position += Vector3.forward * movementSpeed * Time.deltaTime;
+        transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
     }
 
     public void MoveBackward()
     {
         animationPlayer.Play("Walk");
-        transform.position += Vector3.back * movementSpeed * Time.deltaTime;
+        transform.Translate(Vector3.back * movementSpeed * Time.deltaTime);
     }
 
     public void TurnLeft()
