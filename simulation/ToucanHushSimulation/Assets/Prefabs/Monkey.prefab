@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4403126214615153721
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3863507636636963241}
+  m_Layer: 0
+  m_Name: BananaSpawnLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3863507636636963241
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4403126214615153721}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.303, y: 1.394, z: 0.116}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1627729219250055761}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6484344742686738793
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -150,7 +181,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -3500460014136483016, guid: b5276e2b5e04b3d48bd3f970286b5a24, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3863507636636963241}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4357118449180629203, guid: b5276e2b5e04b3d48bd3f970286b5a24, type: 3}
       insertIndex: -1
@@ -173,10 +207,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4357118449180629203, guid: b5276e2b5e04b3d48bd3f970286b5a24, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7150693167985953241}
+    - targetCorrespondingSourceObject: {fileID: 4357118449180629203, guid: b5276e2b5e04b3d48bd3f970286b5a24, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1562868363930959150}
     - targetCorrespondingSourceObject: {fileID: -8946390536476278570, guid: b5276e2b5e04b3d48bd3f970286b5a24, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5594880820153759904}
   m_SourcePrefab: {fileID: 8686905464242370237, guid: b5276e2b5e04b3d48bd3f970286b5a24, type: 3}
+--- !u!4 &1627729219250055761 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -3500460014136483016, guid: b5276e2b5e04b3d48bd3f970286b5a24, type: 3}
+  m_PrefabInstance: {fileID: 6484344742686738793}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6495611253676411327 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8946390536476278570, guid: b5276e2b5e04b3d48bd3f970286b5a24, type: 3}
@@ -244,8 +286,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MonkeyMover
   animationPlayer: {fileID: 0}
-  movementSpeed: 10
-  rotationSpeed: 10
+  movementSpeed: 5
+  rotationSpeed: 180
+  isThrowing: 0
+  isMoveForward: 0
+  isMoveBackward: 0
+  isTurnLeft: 0
+  isTurnRight: 0
+  isThrowBanana: 0
 --- !u!114 &2449604239966295933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,7 +335,7 @@ MonoBehaviour:
     hasUpgradedBrainParametersWithActionSpec: 1
   m_Model: {fileID: 0}
   m_InferenceDevice: 0
-  m_BehaviorType: 0
+  m_BehaviorType: 1
   m_BehaviorName: AimAndThrow
   TeamId: 0
   m_UseChildSensors: 1
@@ -342,6 +390,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c9c5f15d73361e469e2cde5a85fca3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MonkeyBananaThrow
-  throwPoint: {fileID: 0}
-  throwForce: 600
-  banana: {fileID: 0}
+  throwPoint: {fileID: 3863507636636963241}
+  throwForce: 10
+  isThrowing: 0
+  banana: {fileID: 396962625769467493, guid: 86848a28d65aa4449b200287009e92a2, type: 3}
+--- !u!114 &1562868363930959150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7316833257645248954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
+  m_Actions: {fileID: -944628639613478452, guid: c1f0b53f4281f0544af1367d87d5295a, type: 3}
+  m_NotificationBehavior: 3
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 64cb7e9d-eaad-47ff-be79-13cd0478baba
+    m_ActionName: 'HeuristicControls/MoveForward[/Keyboard/w]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 57dda507-5f0d-4520-8792-97c5b625912c
+    m_ActionName: 'HeuristicControls/MoveBackward[/Keyboard/s]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ae1265ba-42dd-4c3b-a306-c4b36da04560
+    m_ActionName: 'HeuristicControls/TurnLeft[/Keyboard/a]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 58024225-06f7-4fbe-9cd8-d633ca66876f
+    m_ActionName: 'HeuristicControls/TurnRight[/Keyboard/d]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 42ab69ff-0a33-47ba-86ce-1ec1aa5188b4
+    m_ActionName: 'HeuristicControls/ThrowBanana[/Keyboard/space]'
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: HeuristicControls
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}

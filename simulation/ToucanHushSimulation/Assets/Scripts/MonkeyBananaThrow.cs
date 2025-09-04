@@ -3,10 +3,13 @@ using UnityEngine;
 
 public class MonkeyBananaThrow : MonoBehaviour
 {
-    Animation animationPlayer;
-    [SerializeField] public Transform throwPoint;
     public float throwForce = 20f;
-    public bool isThrowing;
+    [SerializeField] public Transform throwPoint;
+    [HideInInspector] public bool isThrowing;
+    [HideInInspector] public int ToucansHit = 0;
+
+
+    Animation animationPlayer;
 
 
     public GameObject banana;
@@ -27,14 +30,22 @@ public class MonkeyBananaThrow : MonoBehaviour
     {
         GameObject b = Instantiate(banana, throwPoint.position, throwPoint.rotation);
         Rigidbody rb = b.GetComponent<Rigidbody>();
+        Banana bb = b.GetComponent<Banana>();
+        bb.ToucanHit += ScoreToucan;
+
         if (rb != null)
         {
-            rb.AddForce(throwPoint.forward * throwForce, ForceMode.Impulse);
+            rb.AddForce((throwPoint.forward + 0.5f * throwPoint.up) * throwForce, ForceMode.Impulse);
         }
     }
 
     public void UnlockMovement()
     {
         isThrowing = false;
+    }
+
+    void ScoreToucan()
+    {
+        ToucansHit += 1;
     }
 }
