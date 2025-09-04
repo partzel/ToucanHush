@@ -102,3 +102,4 @@ ServerData
 results/
 model*
 *.onnx
+Binaries/
