@@ -575,6 +575,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 4.71
       objectReference: {fileID: 0}
+    - target: {fileID: 7578114429370232535, guid: b8989465fa1cfc3458a2dcf5e772ab0b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -594,10 +598,6 @@ PrefabInstance:
     - target: {fileID: 2397715723261362380, guid: bd9e2b7c150c8a144a2d255d9df0d38b, type: 3}
       propertyPath: m_Name
       value: Toucan
-      objectReference: {fileID: 0}
-    - target: {fileID: 2805753629166213646, guid: bd9e2b7c150c8a144a2d255d9df0d38b, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5934094706559761191, guid: bd9e2b7c150c8a144a2d255d9df0d38b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -699,6 +699,10 @@ PrefabInstance:
     - target: {fileID: 7316833257645248954, guid: 93c65165356c538458c6868ac729ed77, type: 3}
       propertyPath: m_Name
       value: Monkey
+      objectReference: {fileID: 0}
+    - target: {fileID: 8904735318624287593, guid: 93c65165356c538458c6868ac729ed77, type: 3}
+      propertyPath: rotationSpeed
+      value: 45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

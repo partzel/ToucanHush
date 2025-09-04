@@ -9,6 +9,9 @@ public class MonkeyMover : MonoBehaviour
     public bool isThrowing;
     [HideInInspector] public bool isMoveForward, isMoveBackward, isTurnLeft, isTurnRight, isThrowBanana;
 
+    private Vector3 initialMonkeyPosition;
+    private Quaternion initialMonkeyRotation;
+
     PlayerInput playerInput;
 
     public void Start()
@@ -20,19 +23,22 @@ public class MonkeyMover : MonoBehaviour
         playerInput.actions["MoveForward"].canceled += ctx => isMoveForward = true;
 
         playerInput.actions["MoveForward"].performed += ctx => isMoveForward = true;
-        playerInput.actions["MoveForward"].canceled  += ctx => isMoveForward = false;
+        playerInput.actions["MoveForward"].canceled += ctx => isMoveForward = false;
 
         playerInput.actions["MoveBackward"].performed += ctx => isMoveBackward = true;
-        playerInput.actions["MoveBackward"].canceled  += ctx => isMoveBackward = false;
+        playerInput.actions["MoveBackward"].canceled += ctx => isMoveBackward = false;
 
         playerInput.actions["TurnLeft"].performed += ctx => isTurnLeft = true;
-        playerInput.actions["TurnLeft"].canceled  += ctx => isTurnLeft = false;
+        playerInput.actions["TurnLeft"].canceled += ctx => isTurnLeft = false;
 
         playerInput.actions["TurnRight"].performed += ctx => isTurnRight = true;
-        playerInput.actions["TurnRight"].canceled  += ctx => isTurnRight = false;
+        playerInput.actions["TurnRight"].canceled += ctx => isTurnRight = false;
 
         playerInput.actions["ThrowBanana"].performed += ctx => isThrowBanana = true;
         playerInput.actions["ThrowBanana"].canceled += ctx => isThrowBanana = false;
+
+        initialMonkeyPosition = transform.localPosition;
+        initialMonkeyRotation = transform.rotation;
     }
 
     public void MoveForward()
@@ -63,5 +69,12 @@ public class MonkeyMover : MonoBehaviour
     public void Noop()
     {
         animationPlayer.Play("Idle");
+    }
+
+
+    public void ResetTransform()
+    {
+        transform.localPosition = initialMonkeyPosition;
+        transform.rotation = initialMonkeyRotation;
     }
 }

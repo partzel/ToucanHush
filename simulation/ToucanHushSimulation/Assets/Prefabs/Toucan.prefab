@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3500460014136483016, guid: b9a01685248f2434b8d6c7d1c2ed5536, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.172
       objectReference: {fileID: 0}
     - target: {fileID: -3500460014136483016, guid: b9a01685248f2434b8d6c7d1c2ed5536, type: 3}
       propertyPath: m_LocalPosition.z
@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Toucan
       objectReference: {fileID: 0}
+    - target: {fileID: 4357118449180629203, guid: b9a01685248f2434b8d6c7d1c2ed5536, type: 3}
+      propertyPath: m_TagString
+      value: Toucan
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -80,7 +84,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

@@ -8,6 +8,8 @@ public class MonkeyBananaThrow : MonoBehaviour
     [HideInInspector] public bool isThrowing;
     [HideInInspector] public int ToucansHit = 0;
 
+    public event Action ToucanScored;
+
 
     Animation animationPlayer;
 
@@ -47,5 +49,6 @@ public class MonkeyBananaThrow : MonoBehaviour
     void ScoreToucan()
     {
         ToucansHit += 1;
+        ToucanScored.Invoke();
     }
 }
