@@ -24,8 +24,14 @@ public class MonkeyAgentController : Agent
         monkeyBananaThrow.ToucanScored += OnToucanScored;
     }
 
+    public void FixedUpdate()
+    {
+        AddReward(-0.001f);
+    }
+
     public override void OnEpisodeBegin()
     {
+        SetReward(0);
         monkeyMover.ResetTransform();
         monkeyBananaThrow.isThrowing = false;
     }
@@ -103,7 +109,7 @@ public class MonkeyAgentController : Agent
     {
         if (collision.gameObject.CompareTag("Wall"))
         {
-            AddReward(-0.1f);
+            AddReward(-1f);
             EndEpisode();
         }
     }
