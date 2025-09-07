@@ -6,21 +6,18 @@ using UnityEngine.InputSystem;
 
 public class MonkeyAgentController : Agent
 {
-    [SerializeField] public Transform toucan;
+    public GameObject toucan;
+    private ToucanMover toucanMover;
     public float ToucanHitReward = 1;
     MonkeyMover monkeyMover;
     MonkeyBananaThrow monkeyBananaThrow;
-    PlayerInput controls;
 
-
-    public void Awake()
-    {
-    }
 
     public void Start()
     {
         monkeyMover = GetComponent<MonkeyMover>();
         monkeyBananaThrow = GetComponent<MonkeyBananaThrow>();
+        toucanMover = toucan.GetComponent<ToucanMover>();
         monkeyBananaThrow.ToucanScored += OnToucanScored;
     }
 
@@ -32,8 +29,9 @@ public class MonkeyAgentController : Agent
     public override void OnEpisodeBegin()
     {
         SetReward(0);
-        monkeyMover.ResetTransform();
         monkeyBananaThrow.isThrowing = false;
+        monkeyMover.ResetTransform();
+        toucanMover.ResetTransform();
     }
 
     public override void CollectObservations(VectorSensor sensor)

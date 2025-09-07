@@ -11,6 +11,7 @@ public class MonkeyMover : MonoBehaviour
 
     private Vector3 initialMonkeyPosition;
     private Quaternion initialMonkeyRotation;
+    TransformRandomizer transformRandomizer;
 
     PlayerInput playerInput;
 
@@ -18,6 +19,7 @@ public class MonkeyMover : MonoBehaviour
     {
         animationPlayer = GetComponent<Animation>();
         playerInput = GetComponent<PlayerInput>();
+        transformRandomizer = GetComponent<TransformRandomizer>();
 
         playerInput.actions["MoveForward"].performed += ctx => isMoveForward = true;
         playerInput.actions["MoveForward"].canceled += ctx => isMoveForward = true;
@@ -74,7 +76,15 @@ public class MonkeyMover : MonoBehaviour
 
     public void ResetTransform()
     {
-        transform.localPosition = initialMonkeyPosition;
-        transform.rotation = initialMonkeyRotation;
+        if (transformRandomizer.randomizeOnEpisodeStart)
+        {
+            transformRandomizer.RandomizeTransform();
+        }
+        else
+        {
+            transform.localPosition = initialMonkeyPosition;
+            transform.rotation = initialMonkeyRotation;
+        }
+
     }
 }
