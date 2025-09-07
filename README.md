@@ -3,13 +3,12 @@
 ToucanHush is a **custom Unity ML-Agents environment** built for reinforcement learning experimentation.
 It introduces an environment where an agent learns to **navigate, avoid walls, and score points by throwing bananas at a stationed toucan**.
 
-![Replay](./resources/12x12GrassWorld-Deterministic-replay.gif)
+![Replay](./resources/24x24GrassWorld-Stochastic-replay.gif)
 
 This repository hosts:
 
-*  **Unity environments**: *12x12-GrassWorld Deterministic*, etc.
+*  **Unity environments**: *12x12-GrassWorld Deterministic*, *24x24GrassWorld-Stochastic*, etc.
 * ️ **Training configuration** (ML-Agents YAML)
-*  **Illustration & environment specification** (upcoming)
 
 ---
 
@@ -48,7 +47,10 @@ You can also run it from a published release using the `--env` argument
 
 * **Special mechanic:** Throw action at 27°
 
+**12x12GrassWorld-Deterministic**
 ![Environment Specification](./resources/12x12GrassWorld-Deterministic-specification.png)
+**24x24GrassWorld-Stochastic**
+![Environment Specification](./resources/24x24GrassWorld-Stochastic-specification.png)
 
 ---
 
